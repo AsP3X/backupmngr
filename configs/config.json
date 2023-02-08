@@ -1,0 +1,10 @@
+{
+    "coreup": {
+        "version": "1.0.0",
+        "release": "230208100-beta"
+    },
+    "service": {
+        "interval": 5,
+        "configs": "configs/backup"
+    }
+}
