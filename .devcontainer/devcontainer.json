@@ -12,6 +12,22 @@
 			"moby": "true"
 		},
 		"ghcr.io/devcontainers/features/python:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"AsP3X.corespace-darker",
+				"ms-vscode-remote.remote-containers",
+				"LeonardSSH.vscord",
+				"mikestead.dotenv",
+				"vscode-icons-team.vscode-icons",
+				"GitHub.copilot",
+				"eamodio.gitlens",
+				"ZainChen.json",
+				"mohsen1.prettify-json",
+				"EthanSK.restore-terminals"
+			]
+		}
 	}
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
