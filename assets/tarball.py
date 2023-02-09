@@ -38,4 +38,5 @@ class TarGzArchiver:
 
     def show_progress(self):
         progress = self.compressed_size / self.total_size * 100
-        print(f"Compression progress: {progress:.2f}%", end="\r")
+        current_file = self.tar.getnames()[0]
+        print(f"Compressing file '{current_file}'... {progress:.2f}%", end="\r")
