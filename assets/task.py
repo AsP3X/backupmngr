@@ -11,7 +11,7 @@ class Task:
     
     def create(self, function, *args):
         thread = threading.Thread(target=self.__run_function, args=(function, args))
-        self.threads.append(thread.getName())
+        self.threads.append(thread)
         thread.start()
         
     def __run_function(self, function, args):
@@ -20,6 +20,7 @@ class Task:
 
         self.logger.info(f'Running function {function.__name__} in a new thread')
         function(*args)
+        self.threads.remove(threading.current_thread())
         self.logger.info(f'Finished running function {function.__name__} in a new thread')
 
     def get_theads(self):
