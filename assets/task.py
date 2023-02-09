@@ -1,27 +1,26 @@
-from threading import Thread
-from logging import Logger
+import threading
+import time
+
+from .logging import Logger
 
 class Task:
-    def __init__(self, config):
-        self.config = config
+    def __init__(self):
+        self.logger = Logger("COREUP/Task", "logs/task", "log")
+        self.logger.info("Loaded Successfully")
         self.threads = []
-        # self.logger = Logger("COREUP/TASKMNGR", "./logs", "log")
-        # self.logger.info("Loaded Successfully")
+    
+    def create(self, function, *args):
+        thread = threading.Thread(target=self.__run_function, args=(function, args))
+        self.threads.append(thread.getName())
+        thread.start()
+        
+    def __run_function(self, function, args):
+        if not callable(function):
+            raise TypeError(f'Expected a function, but got {type(function)}')
 
-    def create_threads(self, target, args):
-        """
-        creates threads and stores them
-        """
-        new_thread = Thread(target=target, args=args)
-        self.threads.append(new_thread)
+        self.logger.info(f'Running function {function.__name__} in a new thread')
+        function(*args)
+        self.logger.info(f'Finished running function {function.__name__} in a new thread')
 
-    def dispatch_threads(self):
-        """
-        dispatches the thread and removes it when finished
-        """
-        for thread in self.threads:
-            thread.start()
-
-        for thread in self.threads:
-            thread.join()
-            self.threads.remove(thread)
+    def get_theads(self):
+        return self.threads

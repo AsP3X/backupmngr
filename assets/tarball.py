@@ -10,7 +10,7 @@ def to_linux_path(path):
 
 class TarGzArchiver:
     def __init__(self, config):
-        self.logger = Logger("TarGzArchiver", "logs/targzarchiver.log", "log")
+        self.logger = Logger("COREUP/TarGzArchiver", "logs/targzarchiver", "log")
         self.source = config["source"]
         self.target = config["target"]
         self.name = config["name"]
@@ -18,6 +18,8 @@ class TarGzArchiver:
         self.tar = None
         self.total_size = 0
         self.compressed_size = 0
+
+        self.logger.info("Loaded Successfully")
 
     def create(self):
         self.logger.info(f"Compressing '{self.source}' to '{self.target}'...")
