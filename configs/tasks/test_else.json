@@ -1,0 +1,8 @@
+{
+    "name": "test",
+    "source": "backups/source/test",
+    "target": "backups/out",
+    "timing": [],
+    "type": "tar"
+}
+
