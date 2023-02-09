@@ -6,14 +6,11 @@ from assets.tarball import TarGzArchiver
 
 task = {
     "name": "xmrig-bckp",
-    "source": "testing/input/Screenshots/",
-    "target": "testing/output",
+    "source": "/home/vscode/testing/input/Screenshots/",
+    "target": "/home/vscode/testing/output",
     "timing": ["00:00:00"],
     "type": "tar"
 }
-
-permissions = os.stat(__file__).st_mode
-print(permissions)
 
 tasker = Task(task)
 targzarchiver = TarGzArchiver(task)

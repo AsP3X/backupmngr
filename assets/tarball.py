@@ -37,7 +37,7 @@ class TarGzArchiver:
 
         # Compress the .tar file to .tar.gz
         with open(self.tar_filename, "rb") as tar_file:
-            with open(f"{self.tar_filename}.tar.gz", "wb") as gz_file:
+            with open(f"{self.tar_filename}.gz", "wb") as gz_file:
                 gz = gzip.GzipFile(fileobj=gz_file, mode="wb")
                 for chunk in iter(lambda: tar_file.read(4096), b""):
                     gz.write(chunk)
