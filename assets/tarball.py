@@ -59,4 +59,3 @@ class TarGzArchiver:
         progress = self.compressed_size / self.total_size * 100
         current_file = files[0]
         self.logger.info(f"Compressing file '{current_file}'... {progress:.2f}%", True)
-        # print(f"Compressing file '{current_file}'... {progress:.2f}%", end="\r")
