@@ -46,7 +46,9 @@ class Logger:
 
     def _write_to_log_file(self, message, log_file):
         if self.logType == "logfile" or self.logType == "log":
-            with open(f"{self.logPath}/{log_file}.log", "a") as file:
+            date = time.strftime("%Y-%m-%d", time.gmtime())
+            log_file_name = f"{log_file}_{date}.log"
+            with open(f"{self.logPath}/{log_file_name}", "a") as file:
                 timestamp = time.strftime("%Y-%m-%d-%H-%M-%S", time.gmtime())
                 caller = self.caller
                 file.write(f"[{timestamp}] [{caller}] - {message}\n")
